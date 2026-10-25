@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des produits</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <input
+            type="text"
+            class="search"
+            placeholder="Rechercher"
+        >
+
+        <label class="stock-filter">
+            <input type="checkbox">
+            <span>N'afficher que les produits en stock</span>
+        </label>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prix</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr class="category">
+                    <td colspan="2">Fruits</td>
+                </tr>
+                <tr class="product shaded">
+                    <td>Apple</td>
+                    <td>$1</td>
+                </tr>
+                <tr class="product">
+                    <td>Dragonfruit</td>
+                    <td>$1</td>
+                </tr>
+                <tr class="product unavailable">
+                    <td>Passionfruit</td>
+                    <td>$2</td>
+                </tr>
+
+                <tr class="category">
+                    <td colspan="2">Vegetables</td>
+                </tr>
+                <tr class="product shaded">
+                    <td>Spinach</td>
+                    <td>$2</td>
+                </tr>
+                <tr class="product unavailable">
+                    <td>Pumpkin</td>
+                    <td>$4</td>
+                </tr>
+                <tr class="product">
+                    <td>Peas</td>
+                    <td>$1</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</body>
+</html>
