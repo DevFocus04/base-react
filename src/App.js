@@ -6,7 +6,7 @@ function Input({ setInput }) {
   
   return(
     <div className="search-bar">
-      <input className="search-bar__input" onChange={ (e) => {setInput(e.target.value)} }/>
+      <input className="search-bar__input" onChange={ (e) => {setInput(e.target.value);console.log(e.target.value)} }/>
     </div>
   );
 }
@@ -14,7 +14,7 @@ function CheckBox({ checked }) {
   return(
     <>
     <label className="stock-checkbox">
-      <input className="stock-checkbox__input" type="checkbox" onClick={(e) => {checked(e.target.checked)}}/>
+      <input className="stock-checkbox__input" type="checkbox" onChange={(e) => {checked(e.target.checked)}}/>
       <span className="stock-checkbox__label">
         N'afficher que les produits en stock
       </span>
@@ -68,13 +68,9 @@ function App() {
   const inputFormated = input.toLowerCase();
 
   const filterProducts = products.filter( (product) => {
-    const searchInc = product.name.includes(inputFormated);
-    if (isChecked)
-    {
-      const searchStock = product.stocked == "stocked";
-      return searchInc && searchStock;
-    }
-    return  searchInc;
+    const searchInc = product.name.toLowerCase().includes(inputFormated);
+    const searchStock = product.stocked || !isChecked;
+    return searchInc && searchStock;
   })
   console.log(filterProducts);
 
