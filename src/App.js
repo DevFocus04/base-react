@@ -1,55 +1,12 @@
-import { use, useState } from "react";
+import { useState } from "react";
 import './App.css';
-
-// ###  SearchBox Section ###
-function Input({ setInput }) { 
-  
-  return(
-    <div className="search-bar">
-      <input className="search-bar__input" onChange={ (e) => {setInput(e.target.value);console.log(e.target.value)} }/>
-    </div>
-  );
-}
-function CheckBox({ checked }) {
-  return(
-    <>
-    <label className="stock-checkbox">
-      <input className="stock-checkbox__input" type="checkbox" onChange={(e) => {checked(e.target.checked)}}/>
-      <span className="stock-checkbox__label">
-        N'afficher que les produits en stock
-      </span>
-    </label>
-    </>
-  );
-}
-
-
-//  ###  ProductTable Section ###
-function ProductTable() {
-  return(
-    <>
-      <table className="product-table">
-         <thead>
-          {/*  En-têtes  */}
-        </thead>
-
-        <tbody>
-          {/*  Catégorie Fruits  */}
-          {/*  Lignes de produits */}
-        </tbody>
-
-        <tbody>
-          {/*  Catégorie Vegetables  */}
-          {/* Lignes de produits  */}
-        </tbody>
-    </table>
-    </>
-  )
-}
+import { Input } from './component/form/Input';
+import { CheckBox } from './component/form/CheckBox';
+import { ProductTable } from "./component/product/ProductTable";
 
 
 
-// App
+
 function App() {
    const [input, setInput] = useState('');
    const [isChecked, setIsChecked] = useState(false);
@@ -72,7 +29,6 @@ function App() {
     const searchStock = product.stocked || !isChecked;
     return searchInc && searchStock;
   })
-  console.log(filterProducts);
 
   return (
     <main className="app">
@@ -81,7 +37,7 @@ function App() {
           <Input setInput={ setInput } />
           <CheckBox checked={ setIsChecked }/>
        </>
-        <ProductTable />
+        <ProductTable filterProducts={filterProducts}/>
       </section>
     </main>
   );

@@ -110,16 +110,16 @@ body {
   text-align: left;
 }
 
-.product-table__name-column {
+.product-table__name {
   width: 58%;
 }
 
-.product-table__price-column {
+.product-table__price {
   width: 42%;
 }
 
 /* TableHeader */
-.table-header__cell {
+.table-header {
   height: 34px;
   padding: 0 5px;
 
@@ -162,10 +162,13 @@ body {
 
 .product-row__name {
   color: #555;
+  margin-right: 30px;
 }
 
 .product-row__price {
   color: #333;
+  /* padding: 5px 50px; */
+  text-align: right;
 }
 
 /* Produits indisponibles */
